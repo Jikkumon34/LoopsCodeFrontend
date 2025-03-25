@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import CodeEditor from '@/components/CodeEditor';
+import UnifiedCodeEditor from '@/components/UnifiedCodeEditor';
 import { fetchGraphQL } from '@/lib/graphql';
 
 interface GetExampleResponse {
@@ -58,5 +58,6 @@ export default function EditorExamplePage() {
     return <div>Loading editor...</div>;
   }
 
-  return <CodeEditor initialCode={initialCode} language={languageSlug} />;
+  return <UnifiedCodeEditor defaultLanguage={languageSlug} initialCode={initialCode} allowLanguageChange={false} />
+
 }
