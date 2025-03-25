@@ -208,7 +208,7 @@ export default function HeaderNavbar() {
               <div key={menuKey} className="relative">
                 <button
                   onClick={() => toggleDropdown(menuKey)}
-                  className="text-white px-4 py-2 flex items-center"
+                  className=" px-4 py-2 flex items-center"
                 >
                   <span>{menusData[menuKey].title}</span>
                   <span className="ml-1">▼</span>

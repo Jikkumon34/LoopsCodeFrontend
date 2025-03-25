@@ -1,6 +1,6 @@
 import { fetchGraphQL } from '@/lib/graphql';
 import { Course } from '@/types/types';
-
+import { sanitizeHtml } from '@/utils/sanitize';
 interface CoursePageProps {
   params: Promise<{ courseSlug: string }>;
 }
@@ -39,8 +39,12 @@ export default async function CoursePage({ params }: CoursePageProps) {
   return (
     <div>
       <h1 className="text-2xl font-bold">{course.title}</h1>
-      <p>{course.description}</p>
-      <p>Select a topic from the sidebar to view its content.</p>
+      <div
+        className="content-description" // Add this class
+        style={{ whiteSpace: 'pre-wrap' }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(course.description) }}
+      />
+
     </div>
   );
 }
